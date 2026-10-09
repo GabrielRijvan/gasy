@@ -1,0 +1,615 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ga.B Agency — Design, création digitale et solutions web.">
+  <title>Ga.B Agency — Créativité & Digital</title>
+
+  <style>
+    :root {
+      --blue: #006ee6;
+      --dark: #071426;
+      --muted: #65748b;
+      --light: #f4f8ff;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #e9eef6;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.93rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 22px;
+      background: var(--blue);
+      color: white;
+      border-radius: 8px;
+      font-weight: 700;
+      border: 1px solid var(--blue);
+      transition: transform 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #0055b3;
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--dark);
+      border-color: #d9e2f0;
+    }
+
+    .button-outline:hover {
+      background: var(--light);
+      color: var(--dark);
+    }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 85% 25%, #d9eaff 0, transparent 35%),
+        linear-gradient(135deg, #fff 40%, #f3f8ff 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 13px;
+      border-radius: 30px;
+      color: #0055b3;
+      background: #e5f1ff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      line-height: 1.04;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .hero p {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .visual {
+      position: relative;
+      min-height: 370px;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual-card {
+      width: min(100%, 370px);
+      aspect-ratio: 0.9;
+      padding: 30px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #006ee6, #00254d);
+      box-shadow: 0 35px 80px rgba(0, 67, 145, 0.25);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: rotate(-4deg);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .visual-card .mini {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      opacity: 0.8;
+    }
+
+    .visual-card strong {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -4px;
+    }
+
+    .visual-card p {
+      color: #d9eaff;
+      margin: 12px 0 0;
+    }
+
+    .visual-orb {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #8ec5ff;
+      opacity: 0.6;
+      filter: blur(1px);
+      right: -5px;
+      top: 5px;
+      z-index: -1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-12px) rotate(-2deg); }
+    }
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 15px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .services {
+      background: var(--light);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service {
+      background: white;
+      padding: 30px;
+      border: 1px solid #e5ecf5;
+      border-radius: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(18, 55, 100, 0.08);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      background: #e5f1ff;
+      color: var(--blue);
+      border-radius: 12px;
+      font-size: 1.35rem;
+      margin-bottom: 22px;
+    }
+
+    .service h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-panel {
+      background: var(--dark);
+      color: white;
+      padding: 40px;
+      border-radius: 18px;
+    }
+
+    .about-panel h3 {
+      font-size: 1.8rem;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .about-panel p {
+      color: #c1ccdc;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .contact {
+      background: var(--light);
+      text-align: center;
+    }
+
+    .contact .section-heading {
+      margin: 0 auto 28px;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid #e9eef6;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s, transform 0.65s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      .visual {
+        min-height: 340px;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links .nav-contact {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav-links a:not(.nav-contact) {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-panel {
+        padding: 28px;
+      }
+
+      .visual-card {
+        max-width: 300px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#accueil">Ga.B<span> Agency</span></a>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#apropos">À propos</a>
+        <a class="button nav-contact" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Design · Stratégie · Digital</span>
+
+          <h1>
+            Donnez une autre dimension à votre <span>marque.</span>
+          </h1>
+
+          <p>
+            Nous concevons des identités visuelles et des expériences
+            digitales qui aident les entreprises à se démarquer et à
+            mieux présenter leur valeur.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#contact">Parler de votre projet ↗</a>
+            <a class="button button-outline" href="#services">Nos services</a>
+          </div>
+        </div>
+
+        <div class="visual reveal">
+          <div class="visual-orb"></div>
+          <div class="visual-card">
+            <span class="mini">GA.B AGENCY · CREATIVE STUDIO</span>
+            <strong>MAKE<br>IT<br>MATTER.</strong>
+            <p>Une idée claire. Une identité forte. Un impact durable.</p>
+            <span>DESIGN / WEB / BRANDING</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Nos expertises</span>
+          <h2>Les bons outils pour faire avancer votre activité.</h2>
+          <p>
+            Une approche créative et pragmatique pour mieux présenter
+            vos offres et construire une présence professionnelle.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service reveal">
+            <div class="service-icon">✳</div>
+            <h3>Identité visuelle</h3>
+            <p>Logo, couleurs et univers graphique cohérent pour votre marque.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-icon">▧</div>
+            <h3>Design graphique</h3>
+            <p>Affiches, flyers et supports de communication conçus pour votre public.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-icon">⌘</div>
+            <h3>Sites web</h3>
+            <p>Des sites vitrines modernes pour présenter vos services sur Internet.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-icon">◎</div>
+            <h3>Réseaux sociaux</h3>
+            <p>Des visuels cohérents pour renforcer votre présence numérique.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-icon">↗</div>
+            <h3>Copywriting</h3>
+            <p>Des messages clairs qui expliquent votre valeur et incitent à agir.</p>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-icon">◈</div>
+            <h3>Contenu digital</h3>
+            <p>Des contenus visuels adaptés à vos objectifs de communication.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="apropos">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <span class="eyebrow">Notre approche</span>
+          <h2>La créativité au service d'un objectif concret.</h2>
+
+          <p>
+            Une belle création ne suffit pas. Elle doit aussi communiquer
+            le bon message, inspirer confiance et faciliter la compréhension
+            de votre offre.
+          </p>
+
+          <p>
+            Ga.B Agency accompagne les entreprises dans la construction
+            d'une image plus claire, cohérente et professionnelle.
+          </p>
+
+          <a class="button" href="#contact">Construisons votre projet</a>
+        </div>
+
+        <div class="about-panel reveal">
+          <h3>Votre différence mérite d'être visible.</h3>
+          <p>
+            Chaque projet commence par la compréhension de votre activité,
+            de votre public et du résultat que vous souhaitez obtenir.
+            Les choix créatifs viennent ensuite.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Passons à l'action</span>
+          <h2>Parlons de votre prochain projet.</h2>
+          <p>
+            Vous avez une idée, un service à présenter ou une marque
+            à développer ? Prenons le temps d'en discuter.
+          </p>
+        </div>
+
+        <a class="button" id="contactButton" href="mailto:contact@example.com">
+          Nous contacter ↗
+        </a>
+        <p id="contactMessage" style="margin-top:14px;color:#65748b;font-size:.9rem">
+          Pensez à remplacer l'adresse e-mail de démonstration.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="logo" href="#accueil">Ga.B<span> Agency</span></a>
+      <p>© <span id="year"></span> Ga.B Agency. Tous droits réservés.</p>
+      <p>Créativité avec intention.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Année automatique dans le pied de page
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Animation des sections au défilement
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      revealElements.forEach((element) => observer.observe(element));
+    } else {
+      revealElements.forEach((element) =>
+        element.classList.add("visible")
+      );
+    }
+
+    // Exemple d'interaction du bouton de contact
+    document.getElementById("contactButton").addEventListener("click", () => {
+      const message = document.getElementById("contactMessage");
+      message.textContent =
+        "Si votre logiciel e-mail ne s'ouvre pas, remplacez contact@example.com par votre adresse.";
+    });
+  </script>
+</body>
+</html>
