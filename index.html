@@ -2,614 +2,769 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ga.B Agency — Design, création digitale et solutions web.">
-  <title>Ga.B Agency — Créativité & Digital</title>
-
-  <style>
-    :root {
-      --blue: #006ee6;
-      --dark: #071426;
-      --muted: #65748b;
-      --light: #f4f8ff;
-      --white: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--dark);
-      background: var(--white);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(1120px, 90%);
-      margin: auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid #e9eef6;
-    }
-
-    nav {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 1.45rem;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--blue);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      font-size: 0.93rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--blue);
-    }
-
-    .button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 13px 22px;
-      background: var(--blue);
-      color: white;
-      border-radius: 8px;
-      font-weight: 700;
-      border: 1px solid var(--blue);
-      transition: transform 0.2s, background 0.2s;
-      cursor: pointer;
-    }
-
-    .button:hover {
-      background: #0055b3;
-      transform: translateY(-2px);
-    }
-
-    .button-outline {
-      background: transparent;
-      color: var(--dark);
-      border-color: #d9e2f0;
-    }
-
-    .button-outline:hover {
-      background: var(--light);
-      color: var(--dark);
-    }
-
-    .hero {
-      min-height: 650px;
-      display: flex;
-      align-items: center;
-      padding: 90px 0;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse at 85% 25%, #d9eaff 0, transparent 35%),
-        linear-gradient(135deg, #fff 40%, #f3f8ff 100%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 65px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 7px 13px;
-      border-radius: 30px;
-      color: #0055b3;
-      background: #e5f1ff;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
-      line-height: 1.04;
-      letter-spacing: -3px;
-      margin-bottom: 25px;
-    }
-
-    h1 span {
-      color: var(--blue);
-    }
-
-    .hero p {
-      max-width: 520px;
-      color: var(--muted);
-      font-size: 1.08rem;
-      margin-bottom: 30px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .visual {
-      position: relative;
-      min-height: 370px;
-      display: grid;
-      place-items: center;
-    }
-
-    .visual-card {
-      width: min(100%, 370px);
-      aspect-ratio: 0.9;
-      padding: 30px;
-      border-radius: 22px;
-      background: linear-gradient(145deg, #006ee6, #00254d);
-      box-shadow: 0 35px 80px rgba(0, 67, 145, 0.25);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transform: rotate(-4deg);
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .visual-card .mini {
-      font-size: 0.8rem;
-      letter-spacing: 3px;
-      opacity: 0.8;
-    }
-
-    .visual-card strong {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      line-height: 1;
-      letter-spacing: -4px;
-    }
-
-    .visual-card p {
-      color: #d9eaff;
-      margin: 12px 0 0;
-    }
-
-    .visual-orb {
-      position: absolute;
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background: #8ec5ff;
-      opacity: 0.6;
-      filter: blur(1px);
-      right: -5px;
-      top: 5px;
-      z-index: -1;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(-4deg); }
-      50% { transform: translateY(-12px) rotate(-2deg); }
-    }
-
-    section {
-      padding: 95px 0;
-    }
-
-    .section-heading {
-      max-width: 650px;
-      margin-bottom: 45px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -1.5px;
-      line-height: 1.15;
-      margin-bottom: 15px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-    }
-
-    .services {
-      background: var(--light);
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .service {
-      background: white;
-      padding: 30px;
-      border: 1px solid #e5ecf5;
-      border-radius: 14px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .service:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 40px rgba(18, 55, 100, 0.08);
-    }
-
-    .service-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      background: #e5f1ff;
-      color: var(--blue);
-      border-radius: 12px;
-      font-size: 1.35rem;
-      margin-bottom: 22px;
-    }
-
-    .service h3 {
-      margin-bottom: 10px;
-      font-size: 1.15rem;
-    }
-
-    .service p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-panel {
-      background: var(--dark);
-      color: white;
-      padding: 40px;
-      border-radius: 18px;
-    }
-
-    .about-panel h3 {
-      font-size: 1.8rem;
-      line-height: 1.25;
-      margin-bottom: 20px;
-    }
-
-    .about-panel p {
-      color: #c1ccdc;
-    }
-
-    .about-copy p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .contact {
-      background: var(--light);
-      text-align: center;
-    }
-
-    .contact .section-heading {
-      margin: 0 auto 28px;
-    }
-
-    footer {
-      padding: 28px 0;
-      border-top: 1px solid #e9eef6;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    footer p {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.65s, transform 0.65s;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 800px) {
-      .hero-grid,
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .hero {
-        padding: 75px 0;
-      }
-
-      .visual {
-        min-height: 340px;
-      }
-
-      .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-
-      .nav-links .nav-contact {
-        display: none;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .nav-links a:not(.nav-contact) {
-        display: none;
-      }
-
-      h1 {
-        letter-spacing: -2px;
-      }
-
-      section {
-        padding: 65px 0;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-panel {
-        padding: 28px;
-      }
-
-      .visual-card {
-        max-width: 300px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation: none !important;
-        transition: none !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10251f">
+<meta name="description" content="Découvrez l'histoire de Madagascar, des premiers peuplements à la république moderne.">
+<title>Madagascar — Une histoire, mille héritages</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --green: #183b2e;
+  --green2: #244e3c;
+  --red: #bd4539;
+  --gold: #d9b875;
+  --cream: #f8f5ed;
+  --ink: #202923;
+  --muted: #727a72;
+  --line: #e3dfd3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.75;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { width: 100%; display: block; object-fit: cover; }
+
+.container { width: min(1080px, 90%); margin: auto; }
+
+header {
+  background: rgba(248,245,237,.96);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(12px);
+}
+
+.nav {
+  min-height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .03em;
+}
+
+.brand span { color: var(--red); }
+
+.nav a:last-child {
+  color: var(--green);
+  font-size: .88rem;
+  font-weight: 700;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  background: var(--green);
+  min-height: 590px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .48;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10,32,24,.95), rgba(10,32,24,.62) 60%, rgba(10,32,24,.15));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 100px 0;
+  max-width: 780px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 25px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: var(--gold);
+}
+
+h1, h2, h3, blockquote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 6.2rem);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+  margin-bottom: 25px;
+}
+
+h1 em {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.hero p {
+  max-width: 590px;
+  font-size: 1.05rem;
+  color: #e0e7df;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 38px;
+  font-size: .78rem;
+  color: #d7dfd5;
+}
+
+.hero-meta span::before {
+  content: "•";
+  color: var(--gold);
+  margin-right: 9px;
+}
+
+.intro {
+  padding: 95px 0 80px;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 65px;
+  align-items: start;
+}
+
+.section-label {
+  font-size: .72rem;
+  color: var(--red);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .17em;
+}
+
+.intro h2, .section-heading h2 {
+  font-size: clamp(2.1rem, 4vw, 3.3rem);
+  line-height: 1.2;
+  margin-top: 16px;
+}
+
+.intro-text {
+  font-size: 1.02rem;
+  color: #535d53;
+}
+
+.intro-text p + p { margin-top: 18px; }
+
+.quote {
+  padding: 28px 0 28px 25px;
+  border-left: 3px solid var(--gold);
+  margin-top: 25px;
+}
+
+.quote blockquote {
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--green);
+}
+
+.quote cite {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: .8rem;
+  font-style: normal;
+}
+
+.history {
+  padding: 80px 0 100px;
+  background: #efede4;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  margin-top: 18px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 920px;
+  margin: auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 12px;
+  bottom: 20px;
+  width: 1px;
+  background: #cfc9b8;
+}
+
+.era {
+  position: relative;
+  padding-left: 66px;
+  padding-bottom: 58px;
+}
+
+.era:last-child { padding-bottom: 0; }
+
+.era::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 8px;
+  width: 15px;
+  height: 15px;
+  background: var(--red);
+  border: 4px solid #efede4;
+  outline: 1px solid var(--red);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.era-card {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 32px;
+  background: var(--cream);
+  border: 1px solid #e5e0d4;
+  border-radius: 5px;
+  padding: 30px;
+  align-items: center;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.era-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px #263a2710;
+}
+
+.era-date {
+  font-size: .76rem;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.era h3 {
+  font-size: 1.65rem;
+  line-height: 1.25;
+  margin: 9px 0 14px;
+}
+
+.era p { color: #5d665d; font-size: .94rem; }
+
+.era img {
+  height: 190px;
+  border-radius: 3px;
+  background: #d9d6c9;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 4px 10px;
+  background: #e9e4d6;
+  color: var(--green);
+  font-size: .7rem;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+.fact-band {
+  background: var(--green);
+  color: white;
+  padding: 75px 0;
+}
+
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+.fact { border-top: 1px solid #668071; padding-top: 20px; }
+
+.fact strong {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.6rem;
+  color: var(--gold);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.fact p { color: #d1ded3; font-size: .88rem; }
+
+.legacy { padding: 90px 0; }
+
+.legacy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.legacy img {
+  height: 410px;
+  border-radius: 4px;
+}
+
+.legacy h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin: 15px 0 22px;
+}
+
+.legacy p { color: #5d665d; margin-bottom: 16px; }
+
+.conclusion {
+  background: #eae5d8;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.conclusion-inner { max-width: 760px; margin: auto; }
+
+.conclusion h2 {
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  margin: 15px 0 25px;
+}
+
+.conclusion p { color: #5b645a; }
+
+footer {
+  background: #10251d;
+  color: #cbd6cb;
+  padding: 30px 0;
+  font-size: .78rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+footer strong { color: white; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 760px) {
+  .hero { min-height: 530px; }
+  .hero-content { padding: 80px 0; }
+  .intro-grid, .legacy-grid { grid-template-columns: 1fr; gap: 30px; }
+  .era-card { grid-template-columns: 1fr; gap: 20px; padding: 23px; }
+  .era img { height: 220px; }
+  .fact-grid { grid-template-columns: 1fr; gap: 30px; }
+  .legacy img { height: 300px; }
+  .intro, .history, .legacy { padding-top: 65px; padding-bottom: 65px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <nav class="container">
-      <a class="logo" href="#accueil">Ga.B<span> Agency</span></a>
 
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#apropos">À propos</a>
-        <a class="button nav-contact" href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+<header>
+  <div class="container nav">
+    <a href="#accueil" class="brand">MADAGASCAR <span>●</span> MÉMOIRE</a>
+    <a href="#chronologie">Explorer l'histoire ↓</a>
+  </div>
+</header>
 
-  <main>
-    <section class="hero" id="accueil">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <span class="eyebrow">Design · Stratégie · Digital</span>
+<main>
+  <section class="hero" id="accueil">
+    <img class="hero-image"
+      src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=2000&q=85"
+      alt="Paysage naturel africain"
+      fetchpriority="high">
 
-          <h1>
-            Donnez une autre dimension à votre <span>marque.</span>
-          </h1>
-
-          <p>
-            Nous concevons des identités visuelles et des expériences
-            digitales qui aident les entreprises à se démarquer et à
-            mieux présenter leur valeur.
-          </p>
-
-          <div class="hero-actions">
-            <a class="button" href="#contact">Parler de votre projet ↗</a>
-            <a class="button button-outline" href="#services">Nos services</a>
-          </div>
-        </div>
-
-        <div class="visual reveal">
-          <div class="visual-orb"></div>
-          <div class="visual-card">
-            <span class="mini">GA.B AGENCY · CREATIVE STUDIO</span>
-            <strong>MAKE<br>IT<br>MATTER.</strong>
-            <p>Une idée claire. Une identité forte. Un impact durable.</p>
-            <span>DESIGN / WEB / BRANDING</span>
-          </div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow">Histoire · Culture · Identité</span>
+        <h1>Madagascar,<br>une histoire<br><em>mille héritages.</em></h1>
+        <p>
+          Au carrefour de l'Afrique et de l'Asie, une île a construit
+          au fil des siècles une identité singulière, forgée par les
+          migrations, les royaumes, les résistances et la quête de liberté.
+        </p>
+        <div class="hero-meta">
+          <span>Des premiers peuplements à nos jours</span>
+          <span>Chronologie historique</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="services" id="services">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Nos expertises</span>
-          <h2>Les bons outils pour faire avancer votre activité.</h2>
-          <p>
-            Une approche créative et pragmatique pour mieux présenter
-            vos offres et construire une présence professionnelle.
-          </p>
-        </div>
-
-        <div class="service-grid">
-          <article class="service reveal">
-            <div class="service-icon">✳</div>
-            <h3>Identité visuelle</h3>
-            <p>Logo, couleurs et univers graphique cohérent pour votre marque.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service-icon">▧</div>
-            <h3>Design graphique</h3>
-            <p>Affiches, flyers et supports de communication conçus pour votre public.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service-icon">⌘</div>
-            <h3>Sites web</h3>
-            <p>Des sites vitrines modernes pour présenter vos services sur Internet.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service-icon">◎</div>
-            <h3>Réseaux sociaux</h3>
-            <p>Des visuels cohérents pour renforcer votre présence numérique.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service-icon">↗</div>
-            <h3>Copywriting</h3>
-            <p>Des messages clairs qui expliquent votre valeur et incitent à agir.</p>
-          </article>
-
-          <article class="service reveal">
-            <div class="service-icon">◈</div>
-            <h3>Contenu digital</h3>
-            <p>Des contenus visuels adaptés à vos objectifs de communication.</p>
-          </article>
+  <section class="intro">
+    <div class="container intro-grid">
+      <div class="reveal">
+        <span class="section-label">Une île, plusieurs mondes</span>
+        <h2>Comprendre le passé pour comprendre le présent.</h2>
+      </div>
+      <div class="intro-text reveal">
+        <p>
+          Madagascar est la quatrième plus grande île du monde. Son
+          histoire ne se résume ni à une monarchie, ni à la colonisation,
+          ni à l'indépendance. Elle est le résultat de siècles de
+          rencontres entre des populations venues notamment de l'Asie
+          du Sud-Est et de l'Afrique, puis d'échanges avec le monde
+          de l'océan Indien.
+        </p>
+        <p>
+          Ces rencontres ont contribué à façonner la langue malgache,
+          les pratiques agricoles, les traditions, les systèmes politiques
+          et la diversité culturelle du pays. Les sources historiques
+          restent inégales selon les régions et les périodes : une partie
+          de cette histoire se transmet aussi par la tradition orale.
+        </p>
+        <div class="quote">
+          <blockquote>
+            Une identité commune, construite à travers des histoires
+            régionales multiples.
+          </blockquote>
+          <cite>Une clé de lecture de l'histoire malgache</cite>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="apropos">
-      <div class="container about-grid">
-        <div class="about-copy reveal">
-          <span class="eyebrow">Notre approche</span>
-          <h2>La créativité au service d'un objectif concret.</h2>
-
-          <p>
-            Une belle création ne suffit pas. Elle doit aussi communiquer
-            le bon message, inspirer confiance et faciliter la compréhension
-            de votre offre.
-          </p>
-
-          <p>
-            Ga.B Agency accompagne les entreprises dans la construction
-            d'une image plus claire, cohérente et professionnelle.
-          </p>
-
-          <a class="button" href="#contact">Construisons votre projet</a>
-        </div>
-
-        <div class="about-panel reveal">
-          <h3>Votre différence mérite d'être visible.</h3>
-          <p>
-            Chaque projet commence par la compréhension de votre activité,
-            de votre public et du résultat que vous souhaitez obtenir.
-            Les choix créatifs viennent ensuite.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Passons à l'action</span>
-          <h2>Parlons de votre prochain projet.</h2>
-          <p>
-            Vous avez une idée, un service à présenter ou une marque
-            à développer ? Prenons le temps d'en discuter.
-          </p>
-        </div>
-
-        <a class="button" id="contactButton" href="mailto:contact@example.com">
-          Nous contacter ↗
-        </a>
-        <p id="contactMessage" style="margin-top:14px;color:#65748b;font-size:.9rem">
-          Pensez à remplacer l'adresse e-mail de démonstration.
+  <section class="history" id="chronologie">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-label">La grande chronologie</span>
+        <h2>Les étapes qui ont façonné Madagascar.</h2>
+        <p>
+          Une traversée de plus d'un millénaire, des premières communautés
+          aux institutions de la république contemporaine.
         </p>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <a class="logo" href="#accueil">Ga.B<span> Agency</span></a>
-      <p>© <span id="year"></span> Ga.B Agency. Tous droits réservés.</p>
-      <p>Créativité avec intention.</p>
+      <div class="timeline">
+
+        <article class="era reveal">
+          <div class="era-card">
+            <div>
+              <span class="era-date">Vers le premier millénaire</span>
+              <h3>Les premiers peuplements</h3>
+              <p>
+                Les dates exactes des premières présences humaines font
+                encore l'objet de recherches. Les migrations venues de
+                l'archipel indonésien et d'Afrique ont joué un rôle majeur
+                dans le peuplement de l'île. Des échanges avec les
+                navigateurs de l'océan Indien ont ensuite enrichi cette
+                société plurielle.
+              </p>
+              <span class="tag">Migrations et origines</span>
+            </div>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80"
+              alt="Paysage tropical et végétation">
+          </div>
+        </article>
+
+        <article class="era reveal">
+          <div class="era-card">
+            <div>
+              <span class="era-date">XVIe – XVIIIe siècles</span>
+              <h3>L'âge des royaumes</h3>
+              <p>
+                Plusieurs formations politiques se développent sur
+                l'île. Les royaumes sakalava prennent de l'importance
+                à l'ouest, tandis que des pouvoirs se structurent dans
+                les hautes terres centrales et sur les côtes. Le commerce
+                régional, les rivalités et les échanges avec les étrangers
+                influencent ces dynamiques.
+              </p>
+              <span class="tag">Pouvoirs régionaux</span>
+            </div>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
+              alt="Montagnes et paysage naturel">
+          </div>
+        </article>
+
+        <article class="era reveal">
+          <div class="era-card">
+            <div>
+              <span class="era-date">Fin du XVIIIe – XIXe siècle</span>
+              <h3>L'ascension du royaume merina</h3>
+              <p>
+                Andrianampoinimerina consolide l'Imerina et étend son
+                autorité. Son fils Radama Ier poursuit l'expansion
+                territoriale et modernise notamment l'armée et
+                l'administration. Les relations avec les Britanniques
+                favorisent l'introduction de nouvelles institutions
+                et l'activité missionnaire.
+              </p>
+              <span class="tag">Unification politique</span>
+            </div>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80"
+              alt="Montagne sous un ciel dramatique">
+          </div>
+        </article>
+
+        <article class="era reveal">
+          <div class="era-card">
+            <div>
+              <span class="era-date">1817 – 1895</span>
+              <h3>Monarchie, réformes et tensions</h3>
+              <p>
+                Le royaume renforce ses institutions tout en traversant
+                des conflits internes et des débats sur l'ouverture
+                extérieure. Sous Ranavalona Ire, les relations avec les
+                puissances européennes se tendent. Plus tard, les rivalités
+                franco-britanniques et les pressions diplomatiques
+                fragilisent la souveraineté malgache.
+              </p>
+              <span class="tag">Diplomatie et souveraineté</span>
+            </div>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+              alt="Relief montagneux">
+          </div>
+        </article>
+
+        <article class="era reveal">
+          <div class="era-card">
+            <div>
+              <span class="era-date">1895 – 1960</span>
+              <h3>Conquête et colonisation française</h3>
+              <p>
+                Après la conquête française de 1895, Madagascar est
+                annexé en 1896. La monarchie est abolie et le pays
+                devient une colonie. Les infrastructures et l'économie
+                sont réorganisées dans un système colonial marqué par
+                les inégalités, les contraintes imposées à la population
+                et différentes formes de résistance. L'insurrection
+                de 1947 est durement réprimée.
+              </p>
+              <span class="tag">Colonisation et résistance</span>
+            </div>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80"
+              alt="Architecture ancienne dans une ville">
+          </div>
+        </article>
+
+        <article class="era reveal">
+          <div class="era-card">
+            <div>
+              <span class="era-date">26 juin 1960</span>
+              <h3>Le retour à l'indépendance</h3>
+              <p>
+                Après une période de transition politique et l'accession
+                à l'autonomie interne, la République malgache devient
+                indépendante le 26 juin 1960. Philibert Tsiranana
+                dirige la Première République. L'enjeu est alors de
+                construire un État souverain tout en définissant
+                ses relations avec l'ancienne puissance coloniale.
+              </p>
+              <span class="tag">Indépendance</span>
+            </div>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1494783367193-149034c05e8f?auto=format&fit=crop&w=800&q=80"
+              alt="Paysage de montagnes et de vallées">
+          </div>
+        </article>
+
+        <article class="era reveal">
+          <div class="era-card">
+            <div>
+              <span class="era-date">1972 – 1991</span>
+              <h3>Crises et changements de régime</h3>
+              <p>
+                Les mobilisations de 1972 ouvrent une période de
+                transformations politiques. Sous Didier Ratsiraka,
+                le pays adopte une orientation socialiste et une
+                politique de nationalisation. Les difficultés
+                économiques, les contestations et les mouvements
+                populaires conduisent ensuite à une transition
+                démocratique au début des années 1990.
+              </p>
+              <span class="tag">Transformations politiques</span>
+            </div>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80"
+              alt="Lac entouré de montagnes">
+          </div>
+        </article>
+
+        <article class="era reveal">
+          <div class="era-card">
+            <div>
+              <span class="era-date">1992 – aujourd'hui</span>
+              <h3>La république contemporaine</h3>
+              <p>
+                La Constitution de 1992 marque l'avènement de la
+                Troisième République. Les décennies suivantes sont
+                jalonnées d'élections, de réformes, de crises politiques
+                et de transitions institutionnelles. Madagascar poursuit
+                sa recherche de stabilité, de développement économique
+                et d'amélioration des conditions de vie.
+              </p>
+              <span class="tag">Défis contemporains</span>
+            </div>
+            <img loading="lazy"
+              src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80"
+              alt="Nature et faune dans un paysage sauvage">
+          </div>
+        </article>
+
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // Année automatique dans le pied de page
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+  <section class="fact-band">
+    <div class="container fact-grid">
+      <div class="fact reveal">
+        <strong>587 000+</strong>
+        <p>Km² de superficie : une île-continent aux paysages et aux écosystèmes très diversifiés.</p>
+      </div>
+      <div class="fact reveal">
+        <strong>1960</strong>
+        <p>L'année où Madagascar retrouve officiellement son indépendance, le 26 juin.</p>
+      </div>
+      <div class="fact reveal">
+        <strong>Malagasy</strong>
+        <p>Une langue commune, avec une diversité de traditions, de dialectes et d'héritages régionaux.</p>
+      </div>
+    </div>
+  </section>
 
-    // Animation des sections au défilement
-    const revealElements = document.querySelectorAll(".reveal");
+  <section class="legacy">
+    <div class="container legacy-grid">
+      <div class="reveal">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85"
+          alt="Paysage naturel baigné de lumière">
+      </div>
+      <div class="reveal">
+        <span class="section-label">Un héritage vivant</span>
+        <h2>Une histoire qui ne s'arrête pas au passé.</h2>
+        <p>
+          L'histoire malgache est aussi celle des langues, des croyances,
+          des savoir-faire, des échanges commerciaux et des communautés
+          qui ont transmis leur patrimoine au fil des générations.
+        </p>
+        <p>
+          Elle rappelle que l'identité d'un pays n'est jamais figée :
+          elle se construit à travers les choix collectifs, les conflits,
+          les innovations et les transformations de la société.
+        </p>
+        <p>
+          Connaître cette histoire permet de mieux comprendre les
+          institutions actuelles, les héritages du passé et les défis
+          qui restent à relever.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.12
+  <section class="conclusion">
+    <div class="container conclusion-inner reveal">
+      <span class="section-label">Mémoire et avenir</span>
+      <h2>Comprendre d'où l'on vient pour mieux penser où l'on va.</h2>
+      <p>
+        De la diversité des premiers peuplements à la construction
+        de l'État moderne, l'histoire de Madagascar est une histoire
+        de rencontres, de rapports de force, de résistance et de
+        transformation. Elle reste essentielle pour éclairer l'avenir
+        de la Grande Île.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <strong>MADAGASCAR ● MÉMOIRE</strong>
+    <span>Chronologie historique · Page éducative</span>
+    <span>Les images sont illustratives.</span>
+  </div>
+</footer>
+
+<script>
+  // Apparition progressive des éléments au défilement
+  const elements = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
+    }, { threshold: 0.12 });
 
-      revealElements.forEach((element) => observer.observe(element));
-    } else {
-      revealElements.forEach((element) =>
-        element.classList.add("visible")
-      );
-    }
+    elements.forEach(element => observer.observe(element));
+  } else {
+    elements.forEach(element => element.classList.add('visible'));
+  }
+</script>
 
-    // Exemple d'interaction du bouton de contact
-    document.getElementById("contactButton").addEventListener("click", () => {
-      const message = document.getElementById("contactMessage");
-      message.textContent =
-        "Si votre logiciel e-mail ne s'ouvre pas, remplacez contact@example.com par votre adresse.";
-    });
-  </script>
 </body>
 </html>
